@@ -7,6 +7,7 @@ services:
     depends_on:
       - db
       - session_manager
+    command: bash -c 'while !</dev/tcp/db/5432; do sleep 1; done; app'
     ports:
       - "8080:8080"
   session_manager:
